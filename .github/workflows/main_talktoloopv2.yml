@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_b1e2360d9ff94c54b4bb29e084ea5684 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_214a0e355ea443929f580e85cbf71b6e }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_955213cb9423492297b39dcc0f0431a3 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_c495f605deed49d18670294acc1e4f15 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_b1e2360d9ff94c54b4bb29e084ea5684 }}/appsvc/staticsite:${{ github.sha }}
+        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_955213cb9423492297b39dcc0f0431a3 }}/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'talktoloopv2'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7ba3d60ccb3e41e2ad9cb5956a655823 }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_b1e2360d9ff94c54b4bb29e084ea5684 }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3ab7694b4f21457ea7b2ac406694ce80 }}
+        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_955213cb9423492297b39dcc0f0431a3 }}/appsvc/staticsite:${{ github.sha }}'
