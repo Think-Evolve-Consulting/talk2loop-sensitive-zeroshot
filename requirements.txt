@@ -1,0 +1,8 @@
+openpyxl
+pandas
+fastapi
+uvicorn
+gunicorn
+gradio
+torch
+transformers
